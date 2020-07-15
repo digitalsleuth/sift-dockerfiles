@@ -2,9 +2,8 @@ FROM ubuntu:18.04
 
 RUN \
   apt-get update && \
-  apt-get install -y wget gnupg && \
-  wget -O - http://repo.saltstack.com/apt/ubuntu/18.04/amd64/2019.2/SALTSTACK-GPG-KEY.pub | apt-key add - && \
-  echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/2019.2 bionic main" | tee /etc/apt/sources.list.d/saltstack.list && \
+  apt-get install -y wget nano gnupg && \
+  wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/3000/SALTSTACK-GPG-KEY.pub | apt-key add - && \
+  echo "deb https://repo.saltstack.com/apt/ubuntu/18.04/amd64/3000 bionic main" | tee /etc/apt/sources.list.d/saltstack.list && \
   apt-get update && \
   apt-get install -y salt-minion
-
